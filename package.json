@@ -1,0 +1,27 @@
+{
+  "name": "08SA_01_CleanCodeAndCleanArchitecture_Branas_Turma22",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/fernandopassaia/08SA_01_CleanCodeAndCleanArchitecture_Branas_Turma22.git",
+  "author": "FernandoPassaia MacBook Pro M4 <fernandopassaia@futuradata.com.br>",
+  "license": "MIT",
+  "scripts":{
+	  "docker:build": "docker build -t cccat22_backend docker",
+	  "docker:run": "docker run -it -v $(pwd)/.:/app cccat22_backend bash",
+    "docker:compose:up": "docker-compose -f docker/docker-compose.yaml up -d --build",
+    "docker:compose:down": "docker-compose -f docker/docker-compose.yaml -v down",
+    "docker:compose:exec": "docker-compose -f docker/docker-compose.yaml exec -it backend bash"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
+    "axios": "^1.12.2",
+    "express": "^5.1.0",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.10",
+    "pg-promise": "^12.2.0",
+    "ts-jest": "^29.4.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
