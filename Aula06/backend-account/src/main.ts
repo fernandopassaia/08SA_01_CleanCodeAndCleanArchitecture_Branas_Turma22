@@ -45,10 +45,10 @@ async function main () {
     Registry.getInstance().provide("executeOrder", new ExecuteOrder());
     // BookManager objeto que tem vários books organizado por marketId
     Registry.getInstance().provide("book", new Book("BTC-USD"));
-    // const handler = new OrderHandlerBook();
-    // const handler = new OrderHandlerExecuteOrder();
-    // const handler = new OrderHandlerExecuteHttp();
-    const handler = new OrderHandlerExecuteQueue();
+    // const handler = new OrderHandlerBook(); // Exemplo usando usando Book em Memória
+    // const handler = new OrderHandlerExecuteOrder(); // Exemplo dois usando Use Case Execute Order
+    // const handler = new OrderHandlerExecuteHttp(); // Exemplo 3 usando chamadas entre APIs
+    const handler = new OrderHandlerExecuteQueue(); // Exemplo 4 usando filas
     queue.consume("orderFilled.updateOrder", async (input: any) => {
         // console.log("orderFilled");
         const order = new Order(input.orderId, input.accountId, input.marketId, input.side, input.quantity, input.price, input.fillQuantity, input.fillPrice, input.status, new Date(input.timestamp));
